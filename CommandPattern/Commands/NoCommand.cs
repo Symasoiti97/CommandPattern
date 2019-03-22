@@ -4,25 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandPattern
+namespace CommandPattern.Commands
 {
-    class ManCommand : ICommand
+    class NoCommand : ICommand
     {
-        Man man;
-
-        public ManCommand(Man man)
-        {
-            this.man = man;
-        }
-
         public void Execute()
         {
-            man.Go();
+
         }
 
         public void Undo()
         {
-            man.Stop();
+
         }
     }
 }

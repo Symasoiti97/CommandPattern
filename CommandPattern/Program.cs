@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandPattern.Things;
+using CommandPattern.Commands;
 
 namespace CommandPattern
 {
@@ -10,19 +12,28 @@ namespace CommandPattern
     {
         static void Main(string[] args)
         {
-            TV tV = new TV();
             Pult pult = new Pult();
 
-            pult.SetCommand(new TVOnCommand(tV));
+            TV tv = new TV();
+            Light light = new Light();
+            GarageDoor garageDoor = new GarageDoor();
+            StereoWithCD stereo = new StereoWithCD();
 
-            pult.PressButton();
-            pult.PressUndo();
+            pult.SetCommand(new TVOnCommand(tv), new TVOffCommand(tv));
+            pult.SetCommand(new LightOnCommand(light), new LightOffCommand(light));
+            pult.SetCommand(new GarageDoorOpenCommand(garageDoor), new GarageDoorCloseCommand(garageDoor));
+            pult.SetCommand(new StereoOnWithCDCommand(stereo), new StereoOffWithCDCommand(stereo));
 
-            Man man = new Man();
-            
-            pult.SetCommand(new ManCommand(man));
+            pult.PressOnButton(0);
+            pult.PressOnButton(1);
+            pult.PressOnButton(2);
+            pult.PressOnButton(3);
 
-            pult.PressButton();
+            pult.PressOffButton(0);
+            pult.PressOffButton(1);
+            pult.PressOffButton(2);
+            pult.PressOffButton(3);
+
             pult.PressUndo();
 
             Console.ReadKey();

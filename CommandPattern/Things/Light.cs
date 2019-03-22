@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandPattern
+namespace CommandPattern.Things
 {
-    class TV
+    class Light
     {
         public void On()
         {
-            Console.WriteLine("TV on");
+            Console.WriteLine("On light");
         }
 
         public void Off()
         {
-            Console.WriteLine("TV off");
+            Console.WriteLine("Off light");
         }
     }
 }

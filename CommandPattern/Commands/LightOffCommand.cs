@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandPattern.Things;
 
-namespace CommandPattern
+namespace CommandPattern.Commands
 {
-    class TVOnCommand : ICommand
+    class LightOffCommand : ICommand
     {
-        TV tV;
-        
-        public TVOnCommand(TV tV)
+        Light light;
+
+        public LightOffCommand(Light light)
         {
-            this.tV = tV;
+            this.light = light;
         }
 
         public void Execute()
         {
-            tV.On();
+            light.Off();
         }
 
         public void Undo()
         {
-            tV.Off();
+            light.On();
         }
     }
 }

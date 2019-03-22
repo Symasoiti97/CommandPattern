@@ -43,14 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommand.cs" />
-    <Compile Include="Man.cs" />
-    <Compile Include="ManCommand.cs" />
+    <Compile Include="Commands\GarageDoorCloseCommand.cs" />
+    <Compile Include="Commands\GarageDoorOpenCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\LightOffCommand.cs" />
+    <Compile Include="Commands\NoCommand.cs" />
+    <Compile Include="Commands\StereoOffWithCDCommand.cs" />
+    <Compile Include="Commands\StereoOnWithCDCommand.cs" />
+    <Compile Include="Commands\TVOffCommand.cs" />
+    <Compile Include="Things\GarageDoor.cs" />
+    <Compile Include="Things\Light.cs" />
+    <Compile Include="Commands\LightOnCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pult.cs" />
-    <Compile Include="TV.cs" />
-    <Compile Include="TVOnCommand.cs" />
+    <Compile Include="Things\StereoWithCD.cs" />
+    <Compile Include="Things\TV.cs" />
+    <Compile Include="Commands\TVOnCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
