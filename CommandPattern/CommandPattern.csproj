@@ -47,10 +47,12 @@
     <Compile Include="Commands\GarageDoorOpenCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\LightOffCommand.cs" />
+    <Compile Include="Commands\MacroCommands.cs" />
     <Compile Include="Commands\NoCommand.cs" />
     <Compile Include="Commands\StereoOffWithCDCommand.cs" />
     <Compile Include="Commands\StereoOnWithCDCommand.cs" />
     <Compile Include="Commands\TVOffCommand.cs" />
+    <Compile Include="MacroPult.cs" />
     <Compile Include="Things\GarageDoor.cs" />
     <Compile Include="Things\Light.cs" />
     <Compile Include="Commands\LightOnCommand.cs" />

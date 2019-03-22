@@ -12,12 +12,14 @@ namespace CommandPattern
     {
         static void Main(string[] args)
         {
-            Pult pult = new Pult();
-
             TV tv = new TV();
             Light light = new Light();
             GarageDoor garageDoor = new GarageDoor();
             StereoWithCD stereo = new StereoWithCD();
+
+            Console.WriteLine("Pult:");
+
+            Pult pult = new Pult();
 
             pult.SetCommand(new TVOnCommand(tv), new TVOffCommand(tv));
             pult.SetCommand(new LightOnCommand(light), new LightOffCommand(light));
@@ -35,6 +37,24 @@ namespace CommandPattern
             pult.PressOffButton(3);
 
             pult.PressUndo();
+
+            Console.WriteLine("\nMacroPult:");
+
+            MacroPult macroPult = new MacroPult();
+
+            ICommand[] onCommands = new ICommand[] {new TVOnCommand(tv),new LightOnCommand(light) };
+            ICommand[] offCommands = new ICommand[] { new TVOffCommand(tv), new LightOffCommand(light) };
+
+            MacroCommands onMacroCommands = new MacroCommands(onCommands);
+            MacroCommands offMacroCommands = new MacroCommands(offCommands);
+
+            macroPult.SetCommand(onMacroCommands, offMacroCommands);
+
+            macroPult.PressOnButton(0);
+
+            macroPult.PressOffButton(0);
+
+            macroPult.PressUndo();
 
             Console.ReadKey();
         }
