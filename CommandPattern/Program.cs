@@ -21,10 +21,10 @@ namespace CommandPattern
 
             Pult pult = new Pult();
 
-            pult.SetCommand(new TVOnCommand(tv), new TVOffCommand(tv));
-            pult.SetCommand(new LightOnCommand(light), new LightOffCommand(light));
-            pult.SetCommand(new GarageDoorOpenCommand(garageDoor), new GarageDoorCloseCommand(garageDoor));
-            pult.SetCommand(new StereoOnWithCDCommand(stereo), new StereoOffWithCDCommand(stereo));
+            pult.SetCommand(0, new TVOnCommand(tv), new TVOffCommand(tv));
+            pult.SetCommand(1, new LightOnCommand(light), new LightOffCommand(light));
+            pult.SetCommand(2, new GarageDoorOpenCommand(garageDoor), new GarageDoorCloseCommand(garageDoor));
+            pult.SetCommand(3, new StereoOnWithCDCommand(stereo), new StereoOffWithCDCommand(stereo));
 
             pult.PressOnButton(0);
             pult.PressOnButton(1);

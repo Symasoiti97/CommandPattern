@@ -9,38 +9,36 @@ namespace CommandPattern
 {
     class Pult
     {
-        private List<ICommand> onCommands;
-        private List<ICommand> offCommands;
         private ICommand undoCommand;
+        Dictionary<int, Command> commands;
 
         public Pult()
         {
-            this.onCommands = new List<ICommand>();
-            this.offCommands = new List<ICommand>();
+            commands = new Dictionary<int, Command>();
             this.undoCommand = new NoCommand();
         }
 
-        public void SetCommand(ICommand onCommand, ICommand offCommand)
+        public void SetCommand(int key, ICommand onCommand, ICommand offCommand)
         {
-            this.onCommands.Add(onCommand);
-            this.offCommands.Add(offCommand);
+            Command command = new Command(onCommand, offCommand);
+            commands.Add(key, command);
         }
 
-        public void PressOnButton(uint key)
+        public void PressOnButton(int key)
         {
-            if (this.onCommands.Count > key)
+            if (this.commands[key] != null)
             {
-                this.onCommands[(int)key].Execute();
-                this.undoCommand = this.onCommands[(int)key];
+                this.commands[key].onCommand.Execute();
+                this.undoCommand = this.commands[key].onCommand;
             }
         }
 
-        public void PressOffButton(uint key)
+        public void PressOffButton(int key)
         {
-            if (this.onCommands.Count > key)
+            if (this.commands[key] != null)
             {
-                this.offCommands[(int)key].Execute();
-                this.undoCommand = this.offCommands[(int)key];
+                this.commands[key].offCommand.Execute();
+                this.undoCommand = this.commands[key].offCommand;
             }
         }
 
